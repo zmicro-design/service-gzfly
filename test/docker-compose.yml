@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+
+  gzfly:
+    image: whatwewant/registry:${SERVICE_GZFLY_IMAGE_VERSION}
+    environment:
+      OSS_ACCESS_KEY: ${SERVICE_GZFLY_OSS_ACCESS_KEY}
+      OSS_ACCESS_SECRET: ${SERVICE_GZFLY_OSS_ACCESS_SECRET}
+      OSS_REGION: ${SERVICE_GZFLY_OSS_REGION}
+      OSS_BUCKET: ${SERVICE_GZFLY_OSS_BUCKET}
+
+networks:
+  default:
+    external: true
+    name: compose-ingress

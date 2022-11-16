@@ -1,0 +1,23 @@
+#!/bin/bash
+
+service::config_set() {
+  config::check_or_set $@ $SERVICE_CONFIG
+}
+
+check() {
+  if [ "$DEBUG" = "true" ]; then
+    log::info "[DEBUG][service]: $SERVICE_CONFIG"
+    cat $SERVICE_CONFIG
+  fi
+
+  service::config_set SERVICE_GZFLY_PORT text
+
+  local config_filepath=$SERVICE_CONFIGS/config.yml
+  if [ ! -f "$config_filepath" ]; then
+    log::info "[$(timestamp)] please change the config at ${config_filepath}."
+    local config_filepath=$SERVICE_CONFIGS/config.y
+    cp $SERVICE_DIR/conf/config.yml.example $config_filepath
+  fi
+}
+
+check $@

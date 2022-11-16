@@ -1,0 +1,8 @@
+port: 8080
+
+path: /static/ws
+
+clients:
+  - client_id: id_04aba01
+    client_secret: 29f4e3d3a4302b4d9e01
+    pair_key: pair_3fd01
