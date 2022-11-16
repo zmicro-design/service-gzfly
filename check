@@ -15,7 +15,6 @@ check() {
   local config_filepath=$SERVICE_CONFIGS/config.yml
   if [ ! -f "$config_filepath" ]; then
     log::info "[$(timestamp)] please change the config at ${config_filepath}."
-    local config_filepath=$SERVICE_CONFIGS/config.y
     cp $SERVICE_DIR/conf/config.yml.example $config_filepath
   fi
 }
